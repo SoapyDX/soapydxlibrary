@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mod List</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #4B0082;
+        }
+
+        body {
+            background-image: url('outdoor.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            position: absolute;
+            top: 20px;
+            right: 560px;
+            color: #ffffff;
+            font-size: 48px;
+            z-index: 1;
+        }
+
+        .checker-container {
+            position: absolute; 
+            width: 1000%;
+            height: 875%;
+            background-image: url('spacebg.png');
+            background-size: 1000px 875px;
+            background-repeat: repeat;
+            opacity: 0.5;
+            animation: movePattern 20s linear infinite;
+        }
+
+        @keyframes movePattern {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(-1000px, -875px);
+            }
+        }
+
+        .mod-list {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            border: 2px solid #4B0082;
+            border-radius: 20px;
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0px 0px 15px rgba(75, 0, 130, 0.8);
+        }
+
+        .mod-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid #4B0082;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .mod-container h3 {
+            position: absolute;
+            top: -30px;
+            left: 10px;
+            color: #ffffff;
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .mod-list a {
+            display: block;
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #4B0082;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 18px;
+            border: 1px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .mod-list a:hover {
+            background-color: #6a0dad;
+            color: #fff;
+            box-shadow: 0px 0px 10px rgba(106, 13, 173, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-audio" autoplay loop>
+        <source src="theme2.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="click-sound">
+        <source src="click.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const audio = document.getElementById('background-audio');
+        const clickSound = document.getElementById('click-sound');
+        document.addEventListener('click', () => {
+            try {
+                clickSound.currentTime = 0;
+                clickSound.play();
+            } catch (error) {
+                console.error('Error playing the click sound:', error);
+            }
+        });
+    </script>
+
+    <h1>All of The Mods That I Work On</h1>
+    <div class="mod-list">
+        <div class="mod-container">
+            <h3>FNF MODS</h3>
+            <a href="https://gamebanana.com/mods/541189">Untitled Dave and Bambi Mod</a>
+            <a href="https://gamebanana.com/mods/535899">Fun Bildo Rap Mod</a>
+            <div>Mason.exe (No page yet)</div>
+            <a href="https://gamebanana.com/mods/539603">My FNF Rap Song Mod Rap (AKA FNFRAPKID)</a>
+            <a href="https://gamebanana.com/mods/531345">Bart FNF Mod Simpson</a>
+            <a href="https://gamebanana.com/wips/84509">Ranger's Radical FNF Mod</a>
+            <a href="https://x.com/GoFunkin">Goanifunkin</a>
+        </div>
+        <div class="mod-container">
+            <h3>BALDI MODS</h3>
+            <a href="https://gamebanana.com/wips/87775">Flimbo's Insanity House</a>
+            <a href="https://gamebanana.com/wips/85514">Phils 3D Blast (Again)</a>
+            <a href="https://gamebanana.com/mods/500996">Alan's Fast Paced Place</a>
+            <a href="https://gamebanana.com/mods/412215">Seth's Epic Basics in Life and Education</a>
+        </div>
+    </div>
+</body>
+</html>

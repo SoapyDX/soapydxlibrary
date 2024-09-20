@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The SoapyDX Library</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #4B0082;
+        }
+
+        body {
+            background-color: #000;
+        }
+
+        h1 {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            font-size: 48px;
+            z-index: 1;
+        }
+
+        .checker-container {
+            position: absolute;
+            width: 1000%;
+            height: 875%;
+            background-image: url('spacebg.png');
+            background-size: 1000px 875px;
+            background-repeat: repeat;
+            opacity: 0.5;
+            animation: movePattern 20s linear infinite;
+        }
+
+        @keyframes movePattern {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(-1000px, -875px);
+            }
+        }
+
+        .music-button {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            transition: opacity 0.3s;
+        }
+
+        .music-button.transparent {
+            opacity: 0.5;
+        }
+
+        .center-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            border: 2px solid #4B0082;
+            border-radius: 20px;
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0px 0px 15px rgba(75, 0, 130, 0.8);
+        }
+
+        .center-box h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #ffffff;
+        }
+
+        .center-box a {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #4B0082;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 18px;
+            border: 1px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .center-box a:hover {
+            background-color: #6a0dad;
+            color: #fff;
+            box-shadow: 0px 0px 10px rgba(106, 13, 173, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <h1>The SoapyDX Library</h1>
+    <div class="checker-container"></div>
+
+    <div class="center-box">
+        <h2>Select an Option</h2>
+        <a href="modlist.html">Mod List</a>
+        <a href="socials.html">Socials</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="friends.html">Friends</a>
+    </div>
+
+    <audio id="background-audio" autoplay loop>
+        <source src="theme.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const musicButton = document.getElementById('musicButton');
+        const audio = document.getElementById('background-audio');
+        let isPlaying = true;
+        let timeout;
+
+        musicButton.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                musicButton.textContent = 'Play Music';
+            } else {
+                audio.play();
+                musicButton.textContent = 'Pause Music';
+            }
+            isPlaying = !isPlaying;
+            resetTransparency();
+        });
+
+        musicButton.addEventListener('mouseenter', () => {
+            clearTimeout(timeout);
+            musicButton.classList.remove('transparent');
+        });
+
+        musicButton.addEventListener('mouseleave', () => {
+            startTransparencyTimer();
+        });
+
+        function startTransparencyTimer() {
+            timeout = setTimeout(() => {
+                musicButton.classList.add('transparent');
+            }, 1000);
+        }
+
+        function resetTransparency() {
+            clearTimeout(timeout);
+            musicButton.classList.remove('transparent');
+        }
+
+        startTransparencyTimer();
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #4B0082;
+            overflow: hidden;
+        }
+
+        body {
+            background-color: #000;
+        }
+
+        h1 {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            font-size: 48px;
+            z-index: 1;
+        }
+
+        .checker-container {
+            position: absolute;
+            width: 1920%;
+            height: 1080%;
+            background-image: url('oneshotbg.png');
+            background-size: 1920px 1080px;
+            background-repeat: repeat;
+            opacity: 0.5;
+            animation: movePattern 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes movePattern {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-1920px);
+            }
+        }
+
+        .gallery-container {
+            position: relative;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            border: 2px solid #4B0082;
+            border-radius: 20px;
+            padding: 30px;
+            width: 600px;
+            text-align: center;
+            box-shadow: 0px 0px 15px rgba(75, 0, 130, 0.8);
+            z-index: 1;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+
+        .gallery-item {
+            margin: 15px 0;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .gallery-item p {
+            color: #ffffff;
+            margin-top: 5px;
+        }
+
+        .link {
+            color: #00f;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="checker-container"></div>
+    
+    <h1>Gallery</h1>
+    <div class="gallery-container">
+        <div class="gallery-item">
+            <img src="gallery/weezeer.png" alt="Weezer!">
+            <p>Weezer! (Art made by <a class="link" href="https://x.com/BlueActualRocks" target="_blank">ActuallyBlueRocks</a>)</p>
+        </div>
+        <div class="gallery-item">
+            <img src="gallery/mustard.png" alt="mustard2">
+            <p>The mustard man.</p>
+        </div>
+        <div class="gallery-item">
+            <img src="gallery/mustard2.png" alt="mustard3">
+            <p>TURN ON THE TV (Art made by <a class="link" href="https://x.com/fruitloopmonste" target="_blank">FruitloopMonster</a>)</p>
+        </div>
+        <div class="gallery-item">
+            <img src="gallery/babyshrimp.png" alt="shrimpbaby">
+            <p>dawg who put a baby in my shrimp (Art made by <a class="link" href="https://x.com/fruitloopmonste" target="_blank">FruitloopMonster</a>)</p>
+        </div>
+        <div class="gallery-item">
+            <img src="gallery/phil3d.png" alt="phil3d">
+            <p>Dude, is Phil's 3D Blast On Gamebanana? (Art made by <a class="link" href="https://x.com/fruitloopmonste" target="_blank">FruitloopMonster</a>)</p>
+        </div>
+    </div>
+
+    <audio id="background-audio" autoplay loop>
+        <source src="theme4.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html>

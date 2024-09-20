@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends List</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #4B0082;
+        }
+
+        body {
+            background-color: #000;
+        }
+
+        h1 {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            font-size: 48px;
+            z-index: 1;
+        }
+
+        .checker-container {
+            position: absolute;
+            width: 500%;
+            height: 501%;
+            background-image: url('undertalebg.jpg');
+            background-size: 500px 501px;
+            background-repeat: repeat;
+            opacity: 0.5;
+            animation: movePattern 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes movePattern {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-500px);
+            }
+        }
+
+        .mod-list {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            border: 2px solid #4B0082;
+            border-radius: 20px;
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0px 0px 15px rgba(75, 0, 130, 0.8);
+            z-index: 1;
+            overflow-y: auto;
+            max-height: 400px;
+        }
+
+        .mod-list a {
+            display: block;
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #4B0082;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 18px;
+            border: 1px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .mod-list a:hover {
+            background-color: #6a0dad;
+            color: #fff;
+            box-shadow: 0px 0px 10px rgba(106, 13, 173, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="checker-container"></div>
+    <h1>Friends List</h1>
+    <div class="mod-list">
+        <h2>List of Friends:</h2>
+        <a>aidenredbunny</a>
+        <a>powerrangerx201</a>
+        <a>fruitloopmonster</a>
+        <a>actuallybluerocks</a>
+        <a>goldiedoldie</a>
+        <a>gianna</a>
+        <a>yuzi</a>
+        <a>carter</a>
+        <a>torb</a>
+        <a>ridisimp</a>
+        <a>snow</a>
+        <a>aj</a>
+        <a>ploxi</a>
+        <a>yeit</a>
+        <a>jav</a>
+        <a>gorgle</a>
+        <a>waxen</a>
+        <a>broxide</a>
+        <a>godspeed</a>
+        <a>nick wildy</a>
+        <a>eyeben</a>
+        <a>eitanthegg</a>
+        <a>leafchy</a>
+        <a>honk</a>
+        <a>taylor</a>
+        <a>zzshu</a>
+        <a>viper</a>
+        <a>caffla</a>
+        <a>candy</a>
+        <a>obz-tic</a>
+        <a>monsterkilla</a>
+    </div>
+    <audio id="background-audio" autoplay loop>
+        <source src="theme5.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html>

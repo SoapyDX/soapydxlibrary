@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socials</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #4B0082;
+        }
+
+        body {
+            background-color: #000;
+        }
+
+        h1 {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            font-size: 48px;
+            z-index: 1;
+        }
+
+        .checker-container {
+            position: absolute;
+            width: 1920%;
+            height: 1080%;
+            background-image: url('oneshotbg.png');
+            background-size: 1920px 1080px;
+            background-repeat: repeat;
+            opacity: 0.5;
+            animation: movePattern 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes movePattern {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-1920px);
+            }
+        }
+
+        .mod-list {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            border: 2px solid #4B0082;
+            border-radius: 20px;
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0px 0px 15px rgba(75, 0, 130, 0.8);
+            z-index: 1;
+        }
+
+        .mod-list a {
+            display: block;
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #4B0082;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 18px;
+            border: 1px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .mod-list a:hover {
+            background-color: #6a0dad;
+            color: #fff;
+            box-shadow: 0px 0px 10px rgba(106, 13, 173, 0.8);
+        }
+
+        .contact {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="checker-container"></div>
+    <h1>Social Links</h1>
+    <div class="mod-list">
+        <a href="https://www.youtube.com/@Sabelz">YouTube</a>
+        <a href="https://x.com/SoapyDX">Twitter</a>
+        <a href="https://gamebanana.com/members/1789984">Gamebanana</a>
+        <a href="https://github.com/SoapyDX">GitHub</a>
+        <div class="contact">Contact: sabeliscoolsabelisnotcool@gmail.com</div>
+    </div>
+    <audio id="background-audio" autoplay loop>
+        <source src="theme3.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html>
