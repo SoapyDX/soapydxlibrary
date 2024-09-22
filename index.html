@@ -5,20 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Under Construction</title>
     <style>
-        body {
-            font-family: 'Comic Sans MS', sans-serif;
-            background-color: #000000;
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #000;
+            color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            overflow: hidden;
         }
 
         .center-text {
             text-align: center;
             font-size: 24px;
-            color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #fff;
+        }
+
+        .music-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            transition: opacity 0.3s;
+        }
+
+        .music-button.transparent {
+            opacity: 0.5;
         }
 
         audio {
@@ -31,14 +54,22 @@
         This site is currently under construction, Please check back later.
     </div>
 
+    <button class="music-button" onclick="toggleMusic()">Toggle Music</button>
+
     <audio id="background-audio" autoplay loop>
         <source src="theendofanarea.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
+
+    <script>
+        function toggleMusic() {
+            var audio = document.getElementById('background-audio');
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
 </body>
-<script>
-    document.querySelector('audio').muted = false;
-</script>
-
-
 </html>
