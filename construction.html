@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Comic Sans MS', sans-serif;
-            background-color: #f0f0f0;
+            background-color: #000000;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,7 +18,7 @@
         .center-text {
             text-align: center;
             font-size: 24px;
-            color: #333;
+            color: #ffffff;
         }
 
         audio {
@@ -27,13 +27,33 @@
     </style>
 </head>
 <body>
-    <div class="center-text">
-        This site is currently under construction, Please check back later.
-    </div>
 
     <audio id="background-audio" autoplay loop>
         <source src="theendofanarea.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
+
+
+    <audio id="click-sound">
+        <source src="click.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const audio = document.getElementById('background-audio');
+        const clickSound = document.getElementById('click-sound');
+        document.addEventListener('click', () => {
+            try {
+                clickSound.currentTime = 0;
+                clickSound.play();
+            } catch (error) {
+                console.error('Error playing the click sound:', error);
+            }
+        });
+    </script>
+
+    <div class="center-text">
+        This site is currently under construction, Please check back later.
+    </div>
 </body>
 </html>
