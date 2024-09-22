@@ -56,7 +56,7 @@
 
     <button class="music-button" onclick="toggleMusic()">Toggle Music</button>
 
-    <audio id="background-audio" autoplay loop>
+    <audio id="background-audio" loop>
         <source src="theendofanarea.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -69,6 +69,15 @@
             } else {
                 audio.pause();
             }
+        }
+
+        window.onload = function() {
+            var audio = document.getElementById('background-audio');
+            setTimeout(function() {
+                audio.play().catch(error => {
+                    console.log('Autoplay prevented, waiting for user interaction.');
+                });
+            }, 1000); // Delay to bypass potential autoplay restrictions
         }
     </script>
 </body>
