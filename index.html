@@ -40,8 +40,22 @@
             transition: opacity 0.3s;
         }
 
-        .music-button.transparent {
-            opacity: 0.5;
+        .start-music-button {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            background-color: #fff;
+            border: 2px solid #000;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .start-music-button:hover {
+            background-color: #ddd;
         }
 
         audio {
@@ -51,10 +65,10 @@
 </head>
 <body>
     <div class="center-text">
-        This site is currently under construction, Please check back later.
+        This site is currently under construction. Please check back later.
     </div>
 
-    <button class="music-button" onclick="toggleMusic()">Toggle Music</button>
+    <button class="start-music-button" id="startMusic" onclick="startMusic()">Start Music</button>
 
     <audio id="background-audio" loop>
         <source src="theendofanarea.mp3" type="audio/mpeg">
@@ -62,23 +76,22 @@
     </audio>
 
     <script>
-        function toggleMusic() {
+        function startMusic() {
             var audio = document.getElementById('background-audio');
-            if (audio.paused) {
-                audio.play();
-            } else {
-                audio.pause();
-            }
+            audio.play().then(() => {
+                // Hide the button after starting the music
+                document.getElementById('startMusic').style.display = 'none';
+            }).catch(error => {
+                console.log('Music play was interrupted due to browser restrictions:', error);
+            });
         }
 
-        window.onload = function() {
-            var audio = document.getElementById('background-audio');
-            setTimeout(function() {
-                audio.play().catch(error => {
-                    console.log('Autoplay prevented, waiting for user interaction.');
-                });
-            }, 1000); // Delay to bypass potential autoplay restrictions
-        }
+        // Optional: Automatically attempt to play music when a user clicks anywhere on the page
+        document.body.addEventListener('click', function() {
+            if (document.getElementById('startMusic').style.display !== 'none') {
+                startMusic();
+            }
+        });
     </script>
 </body>
 </html>
