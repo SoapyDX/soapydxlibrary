@@ -121,46 +121,5 @@
         <source src="theme.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-
-    <script>
-        const musicButton = document.getElementById('musicButton');
-        const audio = document.getElementById('background-audio');
-        let isPlaying = true;
-        let timeout;
-
-        musicButton.addEventListener('click', () => {
-            if (isPlaying) {
-                audio.pause();
-                musicButton.textContent = 'Play Music';
-            } else {
-                audio.play();
-                musicButton.textContent = 'Pause Music';
-            }
-            isPlaying = !isPlaying;
-            resetTransparency();
-        });
-
-        musicButton.addEventListener('mouseenter', () => {
-            clearTimeout(timeout);
-            musicButton.classList.remove('transparent');
-        });
-
-        musicButton.addEventListener('mouseleave', () => {
-            startTransparencyTimer();
-        });
-
-        function startTransparencyTimer() {
-            timeout = setTimeout(() => {
-                musicButton.classList.add('transparent');
-            }, 1000);
-        }
-
-        function resetTransparency() {
-            clearTimeout(timeout);
-            musicButton.classList.remove('transparent');
-        }
-
-        startTransparencyTimer();
-    </script>
 </body>
 </html>
